@@ -21,19 +21,27 @@ arr = ["tseccodecell@gmail.com",
        "tsec@tseccodecell.com",
        "code@tsec+code.com",
        "tsec@tseccodecell.com"]
-
+print("TOTAL:",len(arr))
 i = 0
+ans = []
 for x in arr:
-    arr[i] = x.split("@")[0]
+    temp = x.split("@")
+    # print(temp)
+    arr[i] = temp[0]
+    ans.append(temp[1])
     arr[i] = arr[i].split("+")[0]
     temp = ""
     for j in arr[i].split("."):
         temp += j
     arr[i] = temp
     i += 1
-ans = []
-for i in arr:
-    if i not in ans:
-        ans.append(i)
 
-print(len(ans))
+for i in range(len(arr)):
+    arr[i] = arr[i] + "@" + ans[i]
+
+x = []
+for i in arr:
+    if i not in x:
+        x.append(i)
+
+print(len(x))
